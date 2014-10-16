@@ -86,7 +86,7 @@ To get list of projects you need to create an instance for ZohoProjects class by
 
 #### **Exception Handling**
 
-    If there is any error while calling Zoho Projects API then ProjectsException will be thrown. It can be catched as mentioned below.
+If there is any error while calling Zoho Projects API then ProjectsException will be thrown. It can be catched as mentioned below.
 
         try:
            print projects_api.get(project_id) 
@@ -94,5 +94,6 @@ To get list of projects you need to create an instance for ZohoProjects class by
         except ProjectsException as pe:
             print "Error code:" + pe.get_code() + "\nError Message: " + pe.get_message()
             
-    See [Here](../../tree/master/test) for full examples.
+
+See [Here](../../tree/master/test) for full examples.
 
