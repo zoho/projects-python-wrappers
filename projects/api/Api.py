@@ -6,5 +6,4 @@ class Api:
      def __init__(self):
          """Initialize parameters for API class."""
  
-         self.base_url = 'http://mani-1649.csez.zohocorpin.com:9090/restapi/'
-         #self.base_url = "https://projectsapi.zoho.com/restapi/"
+         self.base_url = "https://projectsapi.zoho.com/restapi/"
