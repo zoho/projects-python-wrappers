@@ -74,6 +74,9 @@ class TasksParser:
                 link = resp['link']
                 if 'url' in link['self']:
                     task.set_url(link['self']['url'])
+                if 'subtask' in link:
+                	if 'url' in link['subtask']:
+                    		task.set_subtask_url(link['subtask']['url'])
                 if 'url' in link['timesheet']: 
                     task.set_timesheet_url(link['timesheet']['url'])
         if 'tasklist' in resp:

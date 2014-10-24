@@ -22,6 +22,7 @@ class Task:
             'owners': [] 
             }
         self.url = ""
+        self.subtask_url = ""
         self.timesheet_url = ""
         self.tasklist = TaskList()
         self.end_date_format = ""
@@ -299,6 +300,27 @@ class Task:
 
         """
         return self.url
+        
+    def set_subtask_url(self, subtask_url)
+    
+    	"""
+    	Set the subtask url.
+    	
+    	Args:
+    		subtask_url(str): Subtask Url.
+    	"""
+    	
+    	self.subtask_url = subtask_url
+    	
+    def get_subtask_url()
+    
+    	"""
+    	Get the subtask url.
+    	
+    	Returns:
+    	
+    		str: Returns the subtask url.
+    	"""
 
     def set_timesheet_url(self, timesheet_url):
         """Set timesheet url.
