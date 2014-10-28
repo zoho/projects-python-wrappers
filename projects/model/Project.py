@@ -14,6 +14,7 @@ class Project:
         self.open_bug_count = 0
         self.closed_bug_count = 0
         self.name = ""
+        self.template_id = 0
         self.status = ""
         self.created_date = ""
         self.created_date_long = 0
@@ -178,6 +179,31 @@ class Project:
 
         """
         return self.name
+        
+    def set_template_id(self, template_id)
+    
+    	"""
+    	Set the template id of the project.
+    	
+    	Args:
+    	
+    		template_id(long): ID of the template.
+    	"""
+    	
+    	self.template_id = template_id
+    	
+    def get_template_id(self)
+    
+    	"""
+    	Get the template id of the project.
+    	
+    	Returns:
+    	
+    		long: Returns the template id.
+    	"""
+    	
+    	return self.template_id
+    	
 
     def set_status(self, status):
         """Set status.

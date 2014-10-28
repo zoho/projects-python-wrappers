@@ -1,55 +1,87 @@
 ## **ZohoProjects Python Client Library**
 =========================================
-The python library for integrating with ZohoProjects. It is the python wrapper for Zoho Projects API.
+The Python library for integrating with the Zoho Projects API. Make use of this wrapper to easily integrate Zoho Projects modules like portals, projects, milestones, tasklists, events etc. into your application.
 
 ## Installation
 ---------------
-Download `projects` from repository and add those files to your project.
+Download the `projects` folder from github repository and add the files in them to your project.
 
 ## Documentation
 ----------------
-The documentation for using Zoho Projects API is given [here](http://cms.zohocorp.com/export/zoho/projects/help/rest-api/portals-api.html)
+[API Reference](https://www.zoho.com/projects/help/rest-api/zohoprojectsapi.html)
 
 ## Usage
 --------
-If you want to use all our Zoho projects services API you should have a valid Zoho username, password and a valid authtoken.
+In order to access the Zoho Projects APIs, users need to have a valid Zoho account and a valid Auth Token.
 
-How to generate your authtoken? [Refer Here](http://cms.zohocorp.com/export/zoho/projects/help/rest-api/get-tickets-api.html) 
+### **Sign up for a Zoho Account:**
 
-### How to access ZohoProjects API through python wrapper classes?
------------------------------------------------------------------- 
+- - -
 
-Here is a sample example code for accessing Zoho Projects API through Python wrapper class.
+For setting up a Zoho account, access the Zoho Projects [Sign Up](https://www.zoho.com/projects/zp-signup.html) page and enter the requisite details - email address and password.
+ 
+### **Generate Auth Token:**
 
-You have to import these classes:
+- - -
+ 
+To generate the Auth Token, you need to send an authentication request to Zoho Accounts in a prescribed URL format. [Refer here](https://www.zoho.com/projects/help/rest-api/get-tickets-api.html) 
+
+## Python Wrappers - Sample
+ 
+
+### **How to access Zoho Projects APIs through Python wrapper classes?**
+
+- - - 
+ 
+Below is a sample code for accessing the Projects APIs through Python wrapper classes. Please import these classes:
 
         from projects.model.Project import Project
         from projects.exception.ProjectsException import ProjectsException
         from projects.api.PortalsApi import PortalsApi
         from projects.service.ZohoProjects import ZohoProjects
-		
-There are two ways to create an instance for PortalsAPI
+	
+Once you're done with importing the requisite classes, you'll have to proceed to create an instance of PortalsAPI
 
- - Create an instance for PortalsAPI by passing authtoken:
+### **Create PortalsAPI instance:**
+
+- - -
+
+Now there are two ways of creating an instance of PortalsAPI.
+
+ - Pass the AuthToken and create a PortalsAPI instance. 
+
+Sample code:
 
         portals_api = PortalsApi({"authtoken"})
 			
- - Create an instance for ZohoProjects by passing authtoken and get the instance for portals API.
+ - Pass the AuthToken and PortalId to first create an instance of ZohoProjects, and then proceed to get the instance of PortalsAPI. 
+
+Sample code:
      
         zoho_projects = ZohoProjects({"authtoken"})
 
         portals_api = zoho_projects.get_portals_api()
 			
 			
-#### **Get the list of portals:**
+### **List all Portals:**
+
+- - -
 			
-To get list of portals you need to call the get_portals() method.
+f you wish to get the list of all your Zoho Projects portals, you need to call the `getPortals()` method in the format below:
 
-        print portals_api.get_portals()
+        portals = portals_api.get_portals()
+        
+It returns the List of Portal object as a response.
 
-#### **Get the list of projects:**
+Similarly, if you wish to parse the portal id from the List of Portal object, you need to send a request in the prescribed format below:
+
+        portal_id = portals[0].get_id()
+
+### **List all Projects:**
+
+- - - 
  
-To get list of projects you need to create an instance for ZohoProjects class by passing your authtoken and portal_id.
+If you wish to get the list of all projects from the portal, you need to call the `getProjects()` method by passing query string parameters in the format below:
  
         zoho_projects = ZohoProjects({"authtoken"}, {"portal_id"})
         projects_api = zoho_projects.get_projects_api()
@@ -58,13 +90,27 @@ To get list of projects you need to create an instance for ZohoProjects class by
         'range': 1,
         'status': 'active'
         }
-        print projects_api.get_projects(param) 
+        projects = projects_api.get_projects(param) 
+        
+It returns the List of Project object as a response.
+ 
+Similarly, if you wish to parse the project id from the List of Portal objects, you need to send a request in the format below:
 
-#### **Get details of project**
+        project_id = projects[0].get_id()
+
+### **Get Project details:**
+
+- - -
+
+In order to get the details of a project, you need to call the `get()` method by passing a projectId.
     
         print projects_api.get(project_id)
 
-#### **Create a new project**
+### **Create a new Project:**
+
+- - - 
+
+To create a new project for the specific portal, you need to call the `create()` method by passing the Project object.
         
         project = Project()
         project.set_name("project_2")
@@ -72,7 +118,11 @@ To get list of projects you need to create an instance for ZohoProjects class by
   
         print projects_api.create(project)
 
-#### **Update an existing project**
+### **Update Project details:**
+
+- - -
+
+To update the project details of a particular portal, you need to first fetch the project info. This can be achieved by calling the `get()` method. You can then proceed to update the name of the project (for example) with the help of a sample code below:
  
         project = Project()
         project.set_name("Project1")
@@ -80,13 +130,19 @@ To get list of projects you need to create an instance for ZohoProjects class by
         project.set_status("active")
         print projects_api.update(project_id, project)
 
-#### **Delete project**
+### **Delete a Project:**
+
+- - -
+
+To delete an existing project of a particular portal, you need to call the `delete()` method and pass the projectid.
 
         print projects_api.delete(project_id)
 
-#### **Exception Handling**
+### **Catch Exceptions:**
 
-If there is any error while calling Zoho Projects API then ProjectsException will be thrown. It can be catched as mentioned below.
+- - -
+
+If there is any error encountered while calling the Python Wrappers of Zoho Projects API, the respective class will throw the ProjectsException. Use the below mentioned code to catch the ProjectsException:
 
         try:
            print projects_api.get(project_id) 
@@ -95,5 +151,5 @@ If there is any error while calling Zoho Projects API then ProjectsException wil
             print "Error code:" + pe.get_code() + "\nError Message: " + pe.get_message()
             
 
-See [Here](../../tree/master/test) for full examples.
+For a full set of examples, click [here](../../tree/master/test).
 
