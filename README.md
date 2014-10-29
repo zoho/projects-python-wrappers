@@ -67,7 +67,7 @@ Sample code:
 
 - - -
 			
-f you wish to get the list of all your Zoho Projects portals, you need to call the `getPortals()` method in the format below:
+If you wish to get the list of all your Zoho Projects portals, you need to call the `getPortals()` method in the format below:
 
         portals = portals_api.get_portals()
         
