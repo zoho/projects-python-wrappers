@@ -34,6 +34,8 @@ class PortalsParser:
         portal_obj = Portal()
         if 'id' in portal:
             portal_obj.set_id(portal['id'])
+        if 'id_string' in portal:
+            portal_obj.set_id_string(portal['id_string'])
         if 'name' in portal:
             portal_obj.set_name(portal['name'])
         if 'default' in portal:

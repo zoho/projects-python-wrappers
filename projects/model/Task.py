@@ -9,6 +9,7 @@ class Task:
         """Initialize parameters for tasks object."""
  
         self.id = ""
+        self.id_string = ""
         self.name = ""
         self.completed = ""
         self.created_by = ""
@@ -48,6 +49,28 @@ class Task:
 
         """
         return self.id
+        
+    def set_id_string(self, id_string):
+    	"""
+    	Set the task id string.
+    	
+    	Args:
+    	
+    		id_string(str): Task id string.
+    	"""
+    	
+    	self.id_string = id_string;
+    	
+    def get_id_string(self):
+    	"""
+    	Get the task id string.
+    	
+    	Returns:
+    	
+    		str: Returns the task id string.
+    	"""
+    	
+    	return self.id_string
 
     def set_name(self, name):
         """Set name.

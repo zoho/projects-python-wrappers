@@ -119,7 +119,7 @@ class BugsApi:
 
         """
         
-        url = base_url+'portal/'+str(self.portal_id)+'/projects/'+str(project_id)+'/defaultfields/'
+        url = base_url+'portal/'+str(self.portal_id)+'/projects/'+str(project_id)+'/bugs/defaultfields/'
         
         response = zoho_http_client.get(url, self.details, query);
         
@@ -136,7 +136,7 @@ class BugsApi:
     		list of instance: List of Customfield object.
     	"""
     	
-    	url = base_url+'portal/'+str(self.portal_id)+'/projects/'+str(project_id)+'/customfields/'
+    	url = base_url+'portal/'+str(self.portal_id)+'/projects/'+str(project_id)+'/bugs/customfields/'
     	
     	response = zoho_http_client.get(url, self.details, query);
         

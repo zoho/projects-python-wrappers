@@ -7,6 +7,7 @@ class Project:
         """Initialize parameters for project object."""
      
         self.id = 0
+        self.id_string = ""
         self.open_task_count = 0
         self.closed_task_count = 0 
         self.open_milestone_count = 0
@@ -53,6 +54,24 @@ class Project:
 
         """
         return self.id
+        
+    def set_id_string(self, id_string):
+    	"""
+    	Set the project id as string.
+    	
+    	Args:
+    		id_string(str): Project id as string.
+    	"""
+    	
+    	self.id_string = id_string
+    	
+    def get_id_string(self):
+    	"""
+    	Get the project id as string.
+    	
+    	Returns:
+    		str: Returns the project id as string.
+    	"""
 
     def set_open_task_count(self, count):
         """Set task count.

@@ -1,4 +1,4 @@
-#$ID$
+#$Id$
 
 from projects.model.Milestone import Milestone
 
@@ -9,6 +9,7 @@ class TaskList:
         """Initialize parameters for Taskslist."""
 
         self.id = ""
+        self.id_string = ""
         self.name = ""
         self.milestone = Milestone()
         self.completed = None  
@@ -37,6 +38,30 @@ class TaskList:
 
         """
         return self.id
+        
+    def set_id_string(self, id_string):
+    	
+    	"""
+    	Set the task list id string.
+    	
+    	Args:
+    	
+    		id_string(str): task list id string.
+    	"""
+    	
+    	self.id_string = id_string
+    	
+    def get_id_string(self):
+    	
+    	"""
+    	Get the task list id string.
+    	
+    	Returns:
+    	
+    		str: Returns the task list id string.
+    	"""
+    	
+    	return self.id_string;
 
     def set_name(self, name):
         """Set name.

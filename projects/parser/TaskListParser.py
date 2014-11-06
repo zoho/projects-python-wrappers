@@ -35,6 +35,8 @@ class TaskListParser:
         tasklist = TaskList()
         if 'id' in resp:
             tasklist.set_id(resp['id'])
+        if 'id_string' in resp:
+      	    tasklist.set_id_string(resp['id_string'])
         if 'name' in resp: 
             tasklist.set_name(resp['name'])
         if 'milestone' in resp:

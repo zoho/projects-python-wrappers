@@ -67,6 +67,8 @@ class ProjectsParser:
             project.set_created_date(resp['created_date'])
         if 'id' in resp:
             project.set_id(resp['id'])
+        if 'id_string' in resp:
+            project.set_id_string(resp['id_string'])
         if 'bug_count' in resp:
             if 'open' in resp['bug_count']:
                 project.set_open_bug_count(resp['bug_count']['open'])

@@ -7,6 +7,7 @@ class Portal:
         """Initialize parameters for portal object."""
  
         self.id = 0
+        self.id_string = "" 
         self.name = ""
         self.default = None
         self.gmt_time_zone = ""
@@ -37,6 +38,28 @@ class Portal:
 
         """
         return self.id
+        
+    def set_id_string(self, id_string):
+    	"""
+    	Set the portal id as string.
+    	
+    	Args:
+    	
+    		id_string(str): Portal id as string.
+    	"""
+    	
+    	self.id_string = id_string
+    	
+    def get_id_string(self):
+    	"""
+    	Get the portal id as string.
+    	
+    	Returns:
+    		
+    		str: Returns the portal id as string.
+    	"""
+    	
+    	return self.id_string
 
     def set_name(self, name):
         """Set name.

@@ -39,6 +39,8 @@ class TasksParser:
         task = Task()     
         if 'id' in resp:    
             task.set_id(resp['id'])
+        if 'id_string' in resp:
+       	    task.set_id_string(resp['id_string'])
         if 'name' in resp:
             task.set_name(resp['name'])
         if 'completed' in resp:

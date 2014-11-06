@@ -1,4 +1,4 @@
-#$ID$
+#$Id$
 
 class Category:
     """This class is used to create object for category."""
@@ -6,14 +6,14 @@ class Category:
     def __init__(self):
         """Initialize parameters for Category."""
   
-        self.id = 0
+        self.id = ""
         self.name = ""
    
     def set_id(self, id):
         """Set id.
 
         Args:
-            id(long): Id.
+            id(str): Id.
 
         """
         self.id = id
@@ -22,7 +22,7 @@ class Category:
         """Get id.
 
         Returns:
-            long: Id.
+            str: Id.
 
         """
         return self.id
